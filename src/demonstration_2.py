@@ -23,6 +23,19 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 def build_tree(preorder, inorder):
     # Your code here
+    preorder_index = 0
+    root = TreeNode(preorder[preorder_index]) 
+    
+    inorder_index_map = {}
 
+    for i, elem in enumerate(inorder):
+        inorder_index_map[elem] = i
+        
+    return recurse(preorder, preorder_index, inorder_index_map)
+
+def recurse(preorder, proorder_index, inorder_index_map):
+    if inorder_start > inorder_end:
+        return  

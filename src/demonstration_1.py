@@ -24,3 +24,28 @@ class TreeNode:
 def inorder_traversal(root):
     # Your code here
 
+#pre-order depth-first
+def iter_depth_first_traverse(root):
+    result = []
+    stack = []
+    if root is None:
+        return result
+    stack.append(root)
+
+    while len(stack) != 0:
+        node = stack.pop()
+        result.append(node.value)
+        if node.right:
+            stack.append(node.right)
+        if node.left:
+            stack.append(node.left)
+    return result
+
+def iter_pre_order_traverse(root):
+    result = []
+    queue = deque()
+    if root is None:
+        return result
+    queue.appendleft(root)
+
+    
